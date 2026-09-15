@@ -127,6 +127,56 @@ body {
   border-radius: 4px;
 }
 
+/* ---- High scores ---- */
+#highscores-list {
+  list-style: none;
+  counter-reset: highscore-rank;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 12px;
+}
+
+#highscores-list li {
+  counter-increment: highscore-rank;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+  color: var(--text-color);
+  padding: 2px 4px;
+  border-radius: 3px;
+}
+
+#highscores-list li::before {
+  content: counter(highscore-rank) '.';
+  color: var(--label-color);
+  margin-right: 4px;
+}
+
+#highscores-list li.is-new-highscore {
+  background: rgba(122, 162, 247, 0.18);
+  color: var(--value-color);
+  box-shadow: 0 0 8px var(--value-color);
+}
+
+#reset-scores-btn {
+  align-self: flex-start;
+  background: transparent;
+  color: var(--controls-color);
+  border: 1px solid var(--kbd-border);
+  border-radius: 4px;
+  padding: 3px 10px;
+  font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+
+#reset-scores-btn:hover {
+  background: var(--kbd-bg);
+  color: var(--text-color);
+}
+
 /* ---- Controles ---- */
 .controls ul {
   list-style: none;
@@ -236,6 +286,42 @@ kbd {
   color: var(--overlay-score-color);
 }
 
+#highscore-entry {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+#highscore-entry.hidden {
+  display: none;
+}
+
+#highscore-name-input {
+  background: transparent;
+  color: var(--text-color);
+  border: 1px solid var(--kbd-border);
+  border-radius: 4px;
+  padding: 6px 8px;
+  font-size: 13px;
+  width: 120px;
+}
+
+#save-highscore-btn {
+  background: var(--restart-bg);
+  color: var(--restart-color);
+  border: none;
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+
+#save-highscore-btn:hover {
+  background: var(--restart-hover-bg);
+}
+
 #restart-btn {
   margin-top: 8px;
   background: var(--restart-bg);
@@ -252,4 +338,109 @@ kbd {
 
 #restart-btn:hover {
   background: var(--restart-hover-bg);
+}
+
+/* ---- Skins ---- */
+body[data-skin="neon"] {
+  --board-bg: #000000;
+  --board-border: #000000;
+}
+
+body[data-skin="neon"] #board,
+body[data-skin="neon"] #next-canvas {
+  box-shadow: 0 0 24px 2px rgba(122, 162, 247, 0.5), 0 0 40px rgba(0, 0, 0, 0.6);
+}
+
+body[data-skin="pastel"] {
+  --board-border: #e6d9f0;
+  --board-bg: #fbf7fd;
+}
+
+body[data-skin="pastel"] #board,
+body[data-skin="pastel"] #next-canvas {
+  border-radius: 16px;
+}
+
+/* ---- Pause menu ---- */
+#pause-title {
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  color: var(--overlay-title-color);
+}
+
+#pause-resume-btn,
+#pause-restart-btn {
+  margin-top: 8px;
+  background: var(--restart-bg);
+  color: var(--restart-color);
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.15s;
+}
+
+#pause-resume-btn:hover,
+#pause-restart-btn:hover {
+  background: var(--restart-hover-bg);
+}
+
+.pause-controls {
+  margin-top: 8px;
+  color: var(--text-color);
+  font-size: 12px;
+}
+
+.pause-controls summary {
+  cursor: pointer;
+  color: var(--controls-color);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.pause-controls ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 8px;
+  text-align: left;
+}
+
+.pause-controls li {
+  font-size: 12px;
+  color: var(--controls-color);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.pause-level-select {
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.pause-level-select label {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: var(--label-color);
+  font-weight: 600;
+}
+
+#start-level-select {
+  background: var(--kbd-bg);
+  color: var(--text-color);
+  border: 1px solid var(--kbd-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
 }

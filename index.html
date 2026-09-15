@@ -15,6 +15,14 @@
       <canvas id="board" width="300" height="600"></canvas>
 
       <aside class="panel">
+        <div class="panel-section" id="highscores-section">
+          <span class="label">TOP SCORES</span>
+          <ol id="highscores-list"></ol>
+          <span class="label">MEJOR COMBO: <span id="best-combo">0</span></span>
+          <span class="label">MEJORES LÍNEAS: <span id="best-lines">0</span></span>
+          <button id="reset-scores-btn">Reset</button>
+        </div>
+
         <div class="panel-section">
           <span class="label">SCORE</span>
           <span class="value" id="score">0</span>
@@ -51,6 +59,16 @@
             <li><kbd>P</kbd> pausa</li>
           </ul>
         </div>
+
+        <div class="panel-section" id="skin-section">
+          <span class="label">SKIN</span>
+          <select id="skin-select">
+            <option value="retro">Retro</option>
+            <option value="neon">Neon</option>
+            <option value="pastel">Pastel</option>
+            <option value="pixel">Pixel art</option>
+          </select>
+        </div>
       </aside>
     </div>
 
@@ -58,7 +76,45 @@
       <div class="overlay-box">
         <p id="overlay-title">GAME OVER</p>
         <p id="overlay-score"></p>
+        <div id="highscore-entry" class="hidden">
+          <input id="highscore-name-input" maxlength="12" placeholder="Tu nombre" />
+          <button id="save-highscore-btn">Guardar</button>
+        </div>
         <button id="restart-btn">Reiniciar</button>
+      </div>
+    </div>
+
+    <div id="pause-overlay" class="overlay hidden">
+      <div class="overlay-box">
+        <p id="pause-title">PAUSA</p>
+        <button id="pause-resume-btn">Reanudar</button>
+        <button id="pause-restart-btn">Reiniciar</button>
+
+        <details class="pause-controls">
+          <summary>Ver controles</summary>
+          <ul>
+            <li><kbd>←</kbd><kbd>→</kbd> mover</li>
+            <li><kbd>↑</kbd> rotar</li>
+            <li><kbd>↓</kbd> bajar</li>
+            <li><kbd>Space</kbd> caída</li>
+            <li><kbd>P</kbd> pausa</li>
+          </ul>
+        </details>
+
+        <div class="pause-level-select">
+          <label for="start-level-select">Nivel inicial</label>
+          <select id="start-level-select">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+        </div>
       </div>
     </div>
   </div>

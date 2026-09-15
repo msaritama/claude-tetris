@@ -32,6 +32,7 @@ Three files cooperate with no module system — everything is loaded via a singl
   - **Scoring**: `LINE_SCORES = [0, 100, 300, 500, 800]` multiplied by `level`; hard drop adds 2 points per cell dropped, soft drop adds 1 point per row.
   - **Leveling**: level increases every 10 cleared lines; `dropInterval = max(100, 1000 - (level - 1) * 90)` ms.
   - **Ghost piece**: `ghostY()` projects the current piece straight down to its landing row; drawn at `globalAlpha = 0.2` in `draw()`.
+  - **Skins**: `drawBlock` is the single integration point for the 4 visual skins (`retro`, `neon`, `pastel`, `pixel`) — it branches on the module-scope `skin` variable to pick fill colors/effects (retro is the unchanged default, neon adds canvas `shadowBlur`/`shadowColor` glow, pastel uses `PASTEL_COLORS` with rounded corners, pixel overlays a deterministic dithering pattern), selected via `#skin-select` and persisted in `localStorage` under `tetris-skin`.
   - State (`board`, `current`, `next`, `score`, `lines`, `level`, `paused`, `gameOver`, timing vars) lives in module-level `let` bindings reset by `init()`, which also wires `restartBtn` and starts the loop.
 
 When tuning gameplay, `COLS`, `ROWS`, `BLOCK`, `COLORS`, `LINE_SCORES`, and the initial `dropInterval` are the constants to change at the top of `game.js`. If `COLS`/`ROWS`/`BLOCK` change, the `#board` canvas `width`/`height` in `index.html` must be updated to match (`COLS × BLOCK`, `ROWS × BLOCK`) since nothing computes canvas size dynamically.
