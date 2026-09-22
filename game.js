@@ -69,9 +69,9 @@ const overlayScore = document.getElementById('overlay-score');
 const restartBtn = document.getElementById('restart-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const skinSelect = document.getElementById('skin-select');
-const highscoresListEl = document.getElementById('highscores-list');
-const bestComboEl = document.getElementById('best-combo');
-const bestLinesEl = document.getElementById('best-lines');
+const highscoresListEls = document.querySelectorAll('.highscores-list');
+const bestComboEls = document.querySelectorAll('.best-combo');
+const bestLinesEls = document.querySelectorAll('.best-lines');
 const resetScoresBtn = document.getElementById('reset-scores-btn');
 const highscoreEntry = document.getElementById('highscore-entry');
 const highscoreNameInput = document.getElementById('highscore-name-input');
@@ -309,20 +309,22 @@ function loadBestStats() {
 }
 
 function renderHighScores(highlightIndex) {
-  highscoresListEl.innerHTML = '';
-  highScores.forEach((entry, i) => {
-    const li = document.createElement('li');
-    const nameSpan = document.createElement('span');
-    nameSpan.textContent = entry.name;
-    const scoreSpan = document.createElement('span');
-    scoreSpan.textContent = entry.score.toLocaleString();
-    li.appendChild(nameSpan);
-    li.appendChild(scoreSpan);
-    if (i === highlightIndex) li.classList.add('is-new-highscore');
-    highscoresListEl.appendChild(li);
+  highscoresListEls.forEach(listEl => {
+    listEl.innerHTML = '';
+    highScores.forEach((entry, i) => {
+      const li = document.createElement('li');
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = entry.name;
+      const scoreSpan = document.createElement('span');
+      scoreSpan.textContent = entry.score.toLocaleString();
+      li.appendChild(nameSpan);
+      li.appendChild(scoreSpan);
+      if (i === highlightIndex) li.classList.add('is-new-highscore');
+      listEl.appendChild(li);
+    });
   });
-  bestComboEl.textContent = bestCombo;
-  bestLinesEl.textContent = bestLines;
+  bestComboEls.forEach(el => { el.textContent = bestCombo; });
+  bestLinesEls.forEach(el => { el.textContent = bestLines; });
 }
 
 function resetHighScores() {
