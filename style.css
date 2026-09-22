@@ -128,7 +128,7 @@ body {
 }
 
 /* ---- High scores ---- */
-#highscores-list {
+.highscores-list {
   list-style: none;
   counter-reset: highscore-rank;
   display: flex;
@@ -138,7 +138,7 @@ body {
   font-size: 12px;
 }
 
-#highscores-list li {
+.highscores-list li {
   counter-increment: highscore-rank;
   display: flex;
   justify-content: space-between;
@@ -148,16 +148,31 @@ body {
   border-radius: 3px;
 }
 
-#highscores-list li::before {
+.highscores-list li::before {
   content: counter(highscore-rank) '.';
   color: var(--label-color);
   margin-right: 4px;
 }
 
-#highscores-list li.is-new-highscore {
+.highscores-list li.is-new-highscore {
   background: rgba(122, 162, 247, 0.18);
   color: var(--value-color);
   box-shadow: 0 0 8px var(--value-color);
+}
+
+/* ---- Overlay high scores (game over) ---- */
+.overlay-highscores {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  align-items: stretch;
+  width: 180px;
+  padding-top: 4px;
+  border-top: 1px solid var(--kbd-border);
+}
+
+.overlay-highscores .highscores-list {
+  font-size: 13px;
 }
 
 #reset-scores-btn {
