@@ -612,7 +612,7 @@ function init() {
 document.addEventListener('keydown', e => {
   const targetTag = e.target && e.target.tagName;
   if (targetTag === 'SELECT' || targetTag === 'INPUT' || targetTag === 'TEXTAREA') return;
-  if (e.code === 'KeyP') { togglePause(); return; }
+  if (e.code === 'Enter') { togglePause(); return; }
   if (e.code === 'Escape') {
     if (e.target === startLevelSelect) return; // let the native select popup close on its own
     togglePause();
