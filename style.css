@@ -120,6 +120,17 @@ body {
   letter-spacing: 1px;
 }
 
+#skin-select {
+  background: var(--kbd-bg);
+  color: var(--text-color);
+  border: 1px solid var(--kbd-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
 #next-canvas {
   display: block;
   border: 1px solid var(--board-border);
