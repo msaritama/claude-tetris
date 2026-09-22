@@ -17,9 +17,9 @@
       <aside class="panel">
         <div class="panel-section" id="highscores-section">
           <span class="label">TOP SCORES</span>
-          <ol id="highscores-list"></ol>
-          <span class="label">MEJOR COMBO: <span id="best-combo">0</span></span>
-          <span class="label">MEJORES LÍNEAS: <span id="best-lines">0</span></span>
+          <ol class="highscores-list"></ol>
+          <span class="label">MEJOR COMBO: <span class="best-combo">0</span></span>
+          <span class="label">MEJORES LÍNEAS: <span class="best-lines">0</span></span>
           <button id="reset-scores-btn">Reset</button>
         </div>
 
@@ -56,7 +56,7 @@
             <li><kbd>↑</kbd> rotar</li>
             <li><kbd>↓</kbd> bajar</li>
             <li><kbd>Space</kbd> caída</li>
-            <li><kbd>P</kbd> pausa</li>
+            <li><kbd>Enter</kbd> pausa</li>
           </ul>
         </div>
 
@@ -80,6 +80,12 @@
           <input id="highscore-name-input" maxlength="12" placeholder="Tu nombre" />
           <button id="save-highscore-btn">Guardar</button>
         </div>
+        <div class="overlay-highscores" id="overlay-highscores-section">
+          <span class="label">TOP SCORES</span>
+          <ol class="highscores-list"></ol>
+          <span class="label">MEJOR COMBO: <span class="best-combo">0</span></span>
+          <span class="label">MEJORES LÍNEAS: <span class="best-lines">0</span></span>
+        </div>
         <button id="restart-btn">Reiniciar</button>
       </div>
     </div>
@@ -97,7 +103,7 @@
             <li><kbd>↑</kbd> rotar</li>
             <li><kbd>↓</kbd> bajar</li>
             <li><kbd>Space</kbd> caída</li>
-            <li><kbd>P</kbd> pausa</li>
+            <li><kbd>Enter</kbd> pausa</li>
           </ul>
         </details>
 
